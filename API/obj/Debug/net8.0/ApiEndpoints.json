@@ -1,0 +1,81 @@
+[
+  {
+    "ContainingType": "WebApplicationMVC.Controllers.PersonasApiController",
+    "Method": "Post",
+    "RelativePath": "api/PersonasApi",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "persona",
+        "Type": "WebApplicationMVC.Models.Persona",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApplicationMVC.Controllers.PersonasApiController",
+    "Method": "Get",
+    "RelativePath": "api/PersonasApi",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApplicationMVC.Controllers.PersonasApiController",
+    "Method": "Get",
+    "RelativePath": "api/PersonasApi/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApplicationMVC.Controllers.PersonasApiController",
+    "Method": "Put",
+    "RelativePath": "api/PersonasApi/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "newPersona",
+        "Type": "WebApplicationMVC.Models.Persona",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApplicationMVC.Controllers.PersonasApiController",
+    "Method": "Delete",
+    "RelativePath": "api/PersonasApi/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
