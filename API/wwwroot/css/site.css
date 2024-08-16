@@ -28,3 +28,7 @@ body {
 .btn {
   margin-top: 1em;
 }
+
+.invalid {
+  color: red;
+}

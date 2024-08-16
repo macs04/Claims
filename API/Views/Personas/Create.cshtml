@@ -4,20 +4,68 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-        $("form").change(function () {
-            if ($("form").valid()) {
-                $("#btnSave").prop("disabled", false);
+        $("#btnSave").on("click", function (e) {
+            e.preventDefault();
+            let valid = true;
+
+            if ($("#inputCompania").valid())
+                $("#labelCompania").removeClass("invalid");
+            else { 
+                $("#labelCompania").addClass("invalid");
+                valid = false;
+            }
+            document.getElementById("labelCompania").innerHTML = $("#inputCompania").val();
+
+            if ($("#inputContacto").valid())
+                $("#labelContacto").removeClass("invalid");
+            else {
+                $("#labelContacto").addClass("invalid");
+                valid = false;
+            }
+            document.getElementById("labelContacto").innerHTML = $("#inputContacto").val();
+
+            if ($("#inputCorreo").valid())
+                $("#labelCorreo").removeClass("invalid");
+            else {
+                $("#labelCorreo").addClass("invalid");
+                valid = false;
+            }
+            document.getElementById("labelCorreo").innerHTML = $("#inputCorreo").val();
+
+            if ($("#inputTelefono").valid())
+                $("#labelTelefono").removeClass("invalid");
+            else {
+                $("#labelTelefono").addClass("invalid");
+                valid = false;
+            }
+            document.getElementById("labelTelefono").innerHTML = $("#inputTelefono").val();
+
+            if (valid) {
+                $("#modalTitle").text("Datos correctos");
+                $("#modalTitle").css("color", "green");
+                $("#modalSave").prop("disabled", false);
+            }
+            else {
+                $("#modalTitle").text("Error");
+                $("#modalTitle").css("color", "red");
+                $("#modalSave").prop("disabled", true);
+            }
+
+            $("#modalInfo").modal("show");
+        });
+
+        $(".form-control").on("input", function () {
+            if ($("#inputCompania").val().trim() === "" || $("#inputContacto").val().trim() === "" || $("#inputCorreo").val().trim() === "" || $("#inputTelefono").val().trim() === "") { 
+                 $("#btnSave").prop("disabled", true);
             } else {
-                $("#btnSave").prop("disabled", true);
+                 $("#btnSave").prop("disabled", false);
             }
         });
-        $('#btnSave').on("click", function (e) {
+
+        $('#modalCancel').on("click", function (e) {
             e.preventDefault();
-            document.getElementById("labelCompania").innerHTML = $('#inputCompania').val();
-            document.getElementById("labelContacto").innerHTML = $('#inputContacto').val();
-            document.getElementById("labelCorreo").innerHTML = $('#inputCorreo').val();
-            document.getElementById("labelTelefono").innerHTML = $('#inputTelefono').val();
-            $('#modalInfo').modal('show');
+
+            $("#modalInfo").modal("hide");
         });
     });
 </script>
@@ -62,22 +110,26 @@
             <div class="modal fade" id="modalInfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered">
                   <div class="modal-content">
+                      <div class="modal-header">
+                          <h4 class="modal-title" id="modalTitle"></h4>
+                      </div>
                       <div class="modal-body text-center">
                           <div>
-                            <b>Compañia:</b> <label id="labelCompania"></label>
+                              <label id="labelCompania"></label>
                           </div>
                           <div>
-                            <b>Contacto:</b> <label id="labelContacto"></label>
+                              <label id="labelContacto"></label>
                           </div>
                           <div>
-                            <b>Correo:</b> <label id="labelCorreo"></label>
+                              <label id="labelCorreo"></label>
                           </div>
                           <div>
-                            <b>Telefono:</b> <label id="labelTelefono"></label>
+                              <label id="labelTelefono"></label>
                           </div>
                       </div>
                       <div class="modal-footer">
-                          <input type="submit" value="Aceptar" class="btn btn-primary" data-dismiss="modal"/>
+                          <button type="button" id="modalCancel" class="btn btn-secondary" data-dismiss="modal">Cancelar</button> 
+                          <input type="submit" id="modalSave" value="Guardar" class="btn btn-primary"/>
                       </div>
                   </div
               </div>
